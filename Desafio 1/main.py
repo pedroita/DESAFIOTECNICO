@@ -19,7 +19,7 @@ pdf_files = []
 
 count = 1
 for link in pdf_links:
-    if 'Anexo I' in link.text: 
+    if 'Anexo' in link.text: 
         pdf_url = link['href']
         filename = f'Anexo {count}.pdf'  
         downloadpdf(pdf_url, filename)
