@@ -24,21 +24,16 @@ for link in pdf_links:
         filename = f'Anexo {count}.pdf'  
         downloadpdf(pdf_url, filename)
         pdf_files.append(filename)
-
+        print("Anexo: ",count,"BAIXADO!!" )
         count += 1  
-    elif 'Anexo II' in link.text:  
-        pdf_url = link['href']
-        filename = f'Anexo {count}.pdf'  
-        downloadpdf(pdf_url, filename)
-        pdf_files.append(filename)
-
-        count += 1  
+ 
 
 pdf_files_absolute = [os.path.abspath(filename) for filename in pdf_files]
 
 zip_filename = 'arquivos_compactados.zip'
 with zipfile.ZipFile(zip_filename, 'w') as zipf:
     for pdf_file in pdf_files_absolute:
-        zipf.write(pdf_file, os.path.basename(pdf_file)) 
+        zipf.write(pdf_file, os.path.basename(pdf_file))
+    print("Arquivos compatado!")
 
-print ("Extração realizada com sucesso!")
+print ("Programa Finalizado!")
